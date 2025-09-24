@@ -1,11 +1,9 @@
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins 'http://localhost:5173'
-
+    origins 'https://your-frontend.netlify.app' # or '*' for test
     resource '*',
       headers: :any,
-      methods: [:get, :post, :put, :patch, :delete, :options, :head],
-      expose: ['Authorization'],
-      credentials: true
+      methods: %i[get post put patch delete options],
+      credentials: false
   end
 end
