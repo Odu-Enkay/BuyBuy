@@ -27,10 +27,12 @@ export default function Product() {
   const [flashMessage, setFlashMessage] = useState('');
   const [showFlash, setShowFlash] = useState(false);
 
+  const API_URL = import.meta.env.VITE_API_URL;
+
   useEffect(() => {
     const endpoint = showSwappableOnly
-      ? 'http://localhost:3000/products?swappable=true'
-      : 'http://localhost:3000/products';
+      ? `${API_URL}/products?swappable=true`
+      : `${API_URL}/products`;
 
     fetch(endpoint)
       .then((res) => res.json())

@@ -16,6 +16,7 @@ export default function FavouritesPage() {
   const [loading, setLoading] = useState(true);
   const token = localStorage.getItem("token");
   const navigate = useNavigate();
+  const API_URL = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
     if (!token) {
@@ -23,7 +24,7 @@ export default function FavouritesPage() {
       return;
     }
 
-    fetch("http://localhost:3000/favourites", {
+    fetch(`${API_URL}/favourites`, {
       headers: {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
@@ -43,7 +44,7 @@ export default function FavouritesPage() {
   // Handler to remove favourite
   const handleRemove = (productId, e) => {
     e.stopPropagation(); // prevent card click navigation
-    fetch(`http://localhost:3000/favourites/${productId}`, {
+    fetch(`${API_URL}/favourites/${productId}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`,

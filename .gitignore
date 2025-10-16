@@ -45,6 +45,7 @@ public/packs-test/
 .env.*
 .credentials.yml.enc
 config/master.key
+.env.production
 
 # === OS/System Files ===
 .DS_Store

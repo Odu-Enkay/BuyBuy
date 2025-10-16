@@ -24,9 +24,11 @@ function NewProduct() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
+  const API_URL = import.meta.env.VITE_API_URL;
+
   useEffect(() => {
     const token = localStorage.getItem("token");
-    fetch("http://localhost:3000/categories", {
+    fetch(`${API_URL}/categories`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -82,7 +84,7 @@ function NewProduct() {
     setLoading(true);
 
     const token = localStorage.getItem("token");
-    fetch("http://localhost:3000/products", {
+    fetch(`${API_URL}/products`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

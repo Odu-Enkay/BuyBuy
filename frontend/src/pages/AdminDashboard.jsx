@@ -24,9 +24,11 @@ export default function AdminDashboard({ user }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const API_URL = import.meta.env.VITE_API_URL;
+
   useEffect(() => {
     const token = localStorage.getItem("token");
-    fetch("http://localhost:3000/admin", {
+    fetch(`${API_URL}/admin`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -50,7 +52,7 @@ export default function AdminDashboard({ user }) {
 
     setProducts((prev) => prev.filter((p) => p.id !== productId));
 
-    fetch(`http://localhost:3000/products/${productId}`, {
+    fetch(`${API_URL}/products/${productId}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
