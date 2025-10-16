@@ -26,7 +26,7 @@ export default function App() {
     const token = localStorage.getItem('token');
     if (!token) return;
 
-    fetch('http://localhost:3000/me', {
+    fetch('https://buybuy-p8wt.onrender.com//me', {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -46,7 +46,7 @@ export default function App() {
 
   const handleLogout = () => {
     const token = localStorage.getItem('token');
-    fetch('http://localhost:3000/logout', {
+    fetch('https://buybuy-p8wt.onrender.com/logout', {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${token}`,

@@ -17,13 +17,14 @@ function SellerProducts() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const apiUrl = import.meta.env.VITE_API_BASE_URL;
 
   const navigate = useNavigate();
 
   useEffect(() => {
     const token = localStorage.getItem("token");
 
-    fetch("http://localhost:3000/seller", {
+    fetch(`${apiUrl}/seller`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -59,7 +60,7 @@ function SellerProducts() {
 
     const token = localStorage.getItem("token");
 
-    fetch(`http://localhost:3000/products/${productId}`, {
+    fetch(`${apiUrl}/products/${productId}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`,

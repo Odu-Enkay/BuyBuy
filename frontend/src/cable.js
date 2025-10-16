@@ -1,3 +1,3 @@
 // frontend/src/cable.js
 import { createConsumer } from "@rails/actioncable";
-export default createConsumer("ws://localhost:3000/cable"); // Update if deployed
+export default createConsumer("ws://buybuy-p8wt.onrender.com//cable"); // Update if deployed
