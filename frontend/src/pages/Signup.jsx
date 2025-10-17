@@ -18,12 +18,14 @@ export default function Signup({ onSignup }) {
   const [errorMsg, setErrorMsg] = useState(null);
   const navigate = useNavigate();
 
+  const API_URL = import.meta.env.VITE_API_URL;
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrorMsg(null);
 
     try {
-      const res = await fetch("http://localhost:3000/signup", {
+      const res = await fetch(`${API_URL}/signup`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

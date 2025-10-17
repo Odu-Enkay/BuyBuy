@@ -26,7 +26,7 @@ export default function App() {
     const token = localStorage.getItem('token');
     if (!token) return;
 
-    fetch('https://buybuy-p8wt.onrender.com//me', {
+    fetch('https://buybuy-p8wt.onrender.com/me', {
       headers: {
         Authorization: `Bearer ${token}`,
       },
