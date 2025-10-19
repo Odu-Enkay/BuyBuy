@@ -82,6 +82,14 @@ Rails.application.configure do
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
 
+  # --- ActionCable Configuration ---
+  config.action_cable.mount_path = '/cable'
+  config.action_cable.url = 'wss://buybuy-p8wt.onrender.com/cable'
+  config.action_cable.allowed_request_origins = [
+    'https://buybuy-frontend.onrender.com',
+    'http://buybuy-frontend.onrender.com'
+  ]
+
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
   config.i18n.fallbacks = true
