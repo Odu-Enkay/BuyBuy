@@ -21,13 +21,14 @@ export default function ProductDetails() {
   const [similarPhotos, setSimilarPhotos] = useState([]);
   const [isFavorited, setIsFavorited] = useState(false);
   const [favLoading, setFavLoading] = useState(false);
+  const API_URL = import.meta.env.VITE_API_URL;
 
   const token = localStorage.getItem("token");
 
   // Fetch product details
   useEffect(() => {
     setLoading(true);
-    fetch(`http://localhost:3000/products/${id}`)
+    fetch(`${API_URL}/products/${id}`)
       .then((res) => {
         if (!res.ok) throw new Error("Network error!");
         return res.json();
@@ -46,7 +47,7 @@ export default function ProductDetails() {
   useEffect(() => {
     if (!product) return;
 
-    fetch(`http://localhost:3000/products`)
+    fetch(`${API_URL}/products`)
       .then((res) => res.json())
       .then((data) => {
         const filtered = data.filter(
@@ -65,7 +66,7 @@ export default function ProductDetails() {
   useEffect(() => {
     if (!token || !product) return;
 
-    fetch("http://localhost:3000/favourites", {
+    fetch(`${API_URL}/favourites`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -88,7 +89,7 @@ export default function ProductDetails() {
 
     if (!isFavorited) {
       // Add to favorites
-      fetch("http://localhost:3000/favourites", {
+      fetch(`${API_URL}/favourites`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -107,7 +108,7 @@ export default function ProductDetails() {
         .finally(() => setFavLoading(false));
     } else {
       // Remove from favorites
-      fetch(`http://localhost:3000/favourites/${product.id}`, {
+      fetch(`API_URL/favourites/${product.id}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,
