@@ -18,6 +18,8 @@ export default function ChatPage({ currentUserId, receiverId }) {
   const chatBoxRef = useRef(null);
   const token = localStorage.getItem("token");
 
+  const BASE_URL = "https://buybuy-p8wt.onrender.com";
+
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -28,7 +30,7 @@ export default function ChatPage({ currentUserId, receiverId }) {
     if (!currentUserId || !receiverId) return;
 
     axios
-      .get(`/api/chats/${currentUserId}/${receiverId}`, config)
+      .get(`${BASE_URL}/api/chats/${currentUserId}/${receiverId}`, config)
       .then((res) => setMessages(res.data))
       .catch((err) => console.error("Error fetching messages:", err));
   }, [currentUserId, receiverId]);
@@ -80,7 +82,7 @@ export default function ChatPage({ currentUserId, receiverId }) {
 
     axios
       .post(
-        "/api/chats",
+        `${BASE_URL}/api/chats`,
         {
           chat: {
             receiver_id: receiverId,
