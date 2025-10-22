@@ -1,6 +1,7 @@
 # BuyBuy – Buy/Sell/Swap Platform
 
-Hey everyone!
+Hi!
+Thank you for stopping by!
 
 BuyBuy is a full-stack web application that allows users to buy, sell, and swap products. It features user authentication, product listings, favorites, seller tools, and real-time chat. The app is built using a **Ruby on Rails API backend** and a **React frontend powered by Vite**. Created by [**Nkiruka Odu**](https://github.com/Odu-Enkay) and [**Manav Panchotiya**](https://github.com/manavpanchotiya/).
 
@@ -42,6 +43,10 @@ project-root/
 │   ├── public/
 │   └── ...
 ```
+## 🛒 Explore BuybUy
+
+To view the live app, click here 👉 [BuybUy Marketplace](https://buybuy-frontend.onrender.com)
+
 
 ## 🛠️ Local Development Setup
 ### Backend (Rails)
