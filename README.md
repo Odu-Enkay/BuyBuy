@@ -45,7 +45,7 @@ project-root/
 ```
 ## 🛒 Explore BuybUy
 
-To view the live app, click here 👉 [BuybUy Marketplace](https://buybuy-frontend.onrender.com)
+To view the live app, click here 👉 [BuyBuy Marketplace](https://buybuy-frontend.onrender.com)
 
 
 ## 🛠️ Local Development Setup
